@@ -1,1 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Cientista de Dados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #1e293b;
+            overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            transition: width 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans antialiased">
+    <!-- Cabeçalho -->
+    <header class="fixed w-full bg-gray-900/90 backdrop-blur-sm z-50 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">Portifólio<span class="text-white"> | João Pedro de Brito</span></a>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-emerald-400 transition">Início</a>
+                    <a href="#about" class="hover:text-emerald-400 transition">Sobre</a>
+                    <a href="#skills" class="hover:text-emerald-400 transition">Habilidades</a>
+                    <a href="#projects" class="hover:text-emerald-400 transition">Projetos</a>
+                    <a href="#contact" class="hover:text-emerald-400 transition">Contato</a>
+                </nav>
+                
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-6 py-4">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="hover:text-emerald-400 transition">Início</a>
+                <a href="#about" class="hover:text-emerald-400 transition">Sobre</a>
+                <a href="#skills" class="hover:text-emerald-400 transition">Habilidades</a>
+                <a href="#projects" class="hover:text-emerald-400 transition">Projetos</a>
+                <a href="#contact" class="hover:text-emerald-400 transition">Contato</a>
+            </div>
+        </div>
+    </header>
 
+    
+
+    <!-- Seção Sobre -->
+    <section id="about" class="py-20 bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="gradient-text">Sobre Mim</span>
+            </h2>
+            
+                <div class="md:w-3/3 md:pl-12">
+                    <h3 class="text-2xl font-bold mb-4">Olá, eu sou <span class="gradient-text">João Pedro de Brito</span></h3>
+                    <p class="text-gray-400 mb-6">
+                        <h1>🚀 Análise de Dados para Otimizar Estratégias de Vendas 📊</h1>
+
+  <p>Recentemente, concluí um projeto no meu curso de Ciência de Dados, onde criei um dashboard completo para a <strong>West Superstore</strong>, com o objetivo de ajudar a empresa a otimizar suas operações comerciais e melhorar suas estratégias de vendas.</p>
+
+  <h2 class="emoji">📌 O desafio de negócios</h2>
+  <p>A West Superstore buscava responder perguntas-chave para direcionar suas decisões:</p>
+  <ul>
+    <li>Quais regiões geram mais receita?</li>
+    <li>Quais categorias de produtos possuem maior lucratividade?</li>
+    <li>Como a sazonalidade afeta as vendas?</li>
+    <li>Quem são os clientes mais valiosos?</li>
+  </ul>
+
+  <h2 class="emoji">📌 Os indicadores utilizados</h2>
+  <p>Seguindo os requisitos do projeto, foquei em:</p>
+  <ul>
+    <li><strong>KPI’s de vendas:</strong> Receita total, quantidade de pedidos, ticket médio.</li>
+    <li><strong>KPI’s regionais:</strong> Receita por região e margem de lucro.</li>
+    <li><strong>KPI’s de produtos:</strong> Produtos mais vendidos e categorias mais lucrativas.</li>
+  </ul>
+  <p>Utilizei <strong>tooltips</strong> nos gráficos de receita por região e categoria, permitindo ao usuário ver a margem de lucro ao passar o mouse, proporcionando insights mais profundos!</p>
+
+  <h2 class="emoji">📌 Processo de construção</h2>
+  <p>Os dados foram disponibilizados em uma única planilha Excel. Para estruturar a análise:</p>
+  <ol>
+    <li>Realizei a limpeza dos dados, removendo inconsistências e duplicidades.</li>
+    <li>Modelei o conjunto em uma tabela fato (vendas) e três tabelas dimensão:
+      <ul>
+        <li><strong>Clientes:</strong> dados detalhados dos consumidores.</li>
+        <li><strong>Produtos:</strong> informações dos itens vendidos.</li>
+        <li><strong>Calendário:</strong> análise temporal para sazonalidade.</li>
+      </ul>
+    </li>
+  </ol>
+  <p>A partir disso, criei visualizações que conectam todas essas dimensões para responder às perguntas de negócio e destacar os insights mais importantes.</p>
+
+  <h2 class="emoji">📊 Insights revelados pelo dashboard:</h2>
+  <blockquote>
+    <ul>
+      <li>O estado da <strong>Califórnia</strong> se destacou como o maior gerador de receita com <strong>$2.336.538</strong>, seguido por <strong>Washington</strong> com <strong>$628.734</strong>.</li>
+      <li>A categoria <strong>Office Supplies</strong> possui maior lucratividade, enquanto <strong>Furniture</strong> demanda maior atenção.</li>
+      <li>Há um pico de vendas nos meses de <strong>novembro e dezembro</strong>, reforçando o impacto da sazonalidade.</li>
+      <li>Clientes como <strong>Raymond Buch</strong> e <strong>Nora Preis</strong> são altamente valiosos para o negócio.</li>
+    </ul>
+  </blockquote>
+
+  <p><strong>Obs:</strong> Na visualização de lucro por categoria é possível realizar <em>drill down</em> para subcategorias, e na visualização de sazonalidade também é possível explorar por trimestre e semestre.</p>
+
+  <h2 class="emoji">💡 Conclusão</h2>
+  <p>Este projeto reforçou minha paixão por transformar dados em decisões estratégicas. Foi incrível explorar o potencial das visualizações e KPIs para gerar valor real!</p>
+
+  <p>🔗 Vamos conversar sobre ciência de dados e como projetos como este podem impactar negócios?</p>
+</body>
+</html>
