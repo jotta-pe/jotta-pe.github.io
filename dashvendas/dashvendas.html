@@ -45,6 +45,20 @@
             background: linear-gradient(90deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2));
             border: 1px solid rgba(16, 185, 129, 0.3);
         }
+        
+        .video-container video {
+            max-height: 600px;
+            background: #000;
+        }
+        
+        .video-container video:focus {
+            outline: 2px solid #10b981;
+        }
+        
+        /* Custom video controls styling */
+        .video-controls {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200 font-sans antialiased">
@@ -408,36 +422,87 @@
             </p>
             
             <div class="flex justify-center">
-                <div class="linkedin-post-container max-w-lg w-full">
+                <div class="video-container max-w-4xl w-full">
                     <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
                         <div class="relative overflow-hidden rounded-lg">
-                            <iframe 
-                                src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7275219693949378562?compact=1" 
-                                height="399" 
-                                width="100%" 
-                                frameborder="0" 
-                                allowfullscreen="" 
-                                title="Dashboard West Superstore em funcionamento"
-                                class="w-full rounded-lg">
-                            </iframe>
+                            <video 
+                                id="dashboard-video"
+                                class="w-full h-auto rounded-lg shadow-lg"
+                                controls 
+                                preload="metadata"
+                                poster="./dashboard-preview.jpg"
+                            >
+                                <source src="./dashboard-demo.mp4" type="video/mp4">
+                                <source src="./dashboard-demo.webm" type="video/webm">
+                                <!-- Fallback para navegadores que não suportam video -->
+                                <p class="text-gray-400 p-8 text-center">
+                                    Seu navegador não suporta reprodução de vídeo. 
+                                    <a href="https://www.linkedin.com/posts/jpbmsilva_datascience-dashboard-powerbi-activity-7275219935809712128-8bcw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC0vcVYBGzPreDzgGgMe5qWK0KHwep1VTPI" 
+                                       target="_blank" 
+                                       class="text-emerald-400 hover:text-emerald-300">
+                                        Clique aqui para ver no LinkedIn
+                                    </a>
+                                </p>
+                            </video>
+                            
+                            <!-- Overlay com informações do vídeo -->
+                            <div class="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded text-sm backdrop-blur-sm">
+                                <i class="fas fa-chart-bar mr-1"></i>
+                                Dashboard West Superstore
+                            </div>
                         </div>
-                        <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-                            <a 
-                                href="https://www.linkedin.com/posts/jpbmsilva_datascience-dashboard-powerbi-activity-7275219935809712128-8bcw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC0vcVYBGzPreDzgGgMe5qWK0KHwep1VTPI" 
-                                target="_blank"
-                                class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors justify-center"
-                            >
-                                <i class="fab fa-linkedin-in"></i>
-                                <span>Ver Post Completo</span>
-                            </a>
-                            <a 
-                                href="https://www.linkedin.com/in/jpbmsilva" 
-                                target="_blank"
-                                class="inline-flex items-center space-x-2 border border-emerald-500 text-emerald-400 px-4 py-2 rounded-lg hover:bg-emerald-500/10 transition-colors justify-center"
-                            >
-                                <i class="fas fa-user-plus"></i>
-                                <span>Conectar no LinkedIn</span>
-                            </a>
+                        
+                        <!-- Controles e informações adicionais -->
+                        <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-between items-center">
+                            <div class="flex items-center space-x-4">
+                                <button id="play-pause-btn" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center space-x-2">
+                                    <i class="fas fa-play" id="play-icon"></i>
+                                    <span id="play-text">Reproduzir</span>
+                                </button>
+                                
+                                <button id="fullscreen-btn" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                
+                                <div class="text-sm text-gray-400">
+                                    <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-3">
+                                <a 
+                                    href="https://www.linkedin.com/posts/jpbmsilva_datascience-dashboard-powerbi-activity-7275219935809712128-8bcw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC0vcVYBGzPreDzgGgMe5qWK0KHwep1VTPI" 
+                                    target="_blank"
+                                    class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors text-sm"
+                                >
+                                    <i class="fab fa-linkedin-in"></i>
+                                    <span>Ver no LinkedIn</span>
+                                </a>
+                                <a 
+                                    href="https://www.linkedin.com/in/jpbmsilva" 
+                                    target="_blank"
+                                    class="inline-flex items-center space-x-2 border border-emerald-500 text-emerald-400 px-4 py-2 rounded-lg hover:bg-emerald-500/10 transition-colors text-sm"
+                                >
+                                    <i class="fas fa-user-plus"></i>
+                                    <span>Conectar</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Tecnologias utilizadas -->
+                        <div class="mt-4 flex flex-wrap justify-center gap-2">
+                            <span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-xs flex items-center">
+                                <i class="fas fa-chart-bar mr-1"></i>Power BI
+                            </span>
+                            <span class="bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full text-xs flex items-center">
+                                <i class="fas fa-mouse-pointer mr-1"></i>Interativo
+                            </span>
+                            <span class="bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-xs flex items-center">
+                                <i class="fas fa-search-plus mr-1"></i>Drill Down
+                            </span>
+                            <span class="bg-amber-500/20 text-amber-300 px-3 py-1 rounded-full text-xs flex items-center">
+                                <i class="fas fa-info-circle mr-1"></i>Tooltips
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -591,6 +656,87 @@
             card.style.transition = 'all 0.6s ease';
             observer.observe(card);
         });
+
+        // Controles personalizados do vídeo
+        const video = document.getElementById('dashboard-video');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const playIcon = document.getElementById('play-icon');
+        const playText = document.getElementById('play-text');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const currentTimeSpan = document.getElementById('current-time');
+        const durationSpan = document.getElementById('duration');
+
+        if (video && playPauseBtn) {
+            // Play/Pause functionality
+            playPauseBtn.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+
+            // Update play/pause button
+            video.addEventListener('play', () => {
+                playIcon.className = 'fas fa-pause';
+                playText.textContent = 'Pausar';
+            });
+
+            video.addEventListener('pause', () => {
+                playIcon.className = 'fas fa-play';
+                playText.textContent = 'Reproduzir';
+            });
+
+            // Update time display
+            video.addEventListener('timeupdate', () => {
+                const current = formatTime(video.currentTime);
+                currentTimeSpan.textContent = current;
+            });
+
+            video.addEventListener('loadedmetadata', () => {
+                const duration = formatTime(video.duration);
+                durationSpan.textContent = duration;
+            });
+
+            // Fullscreen functionality
+            fullscreenBtn.addEventListener('click', () => {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) {
+                    video.webkitRequestFullscreen();
+                } else if (video.mozRequestFullScreen) {
+                    video.mozRequestFullScreen();
+                }
+            });
+
+            // Format time helper function
+            function formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            // Video error handling
+            video.addEventListener('error', (e) => {
+                console.error('Erro ao carregar vídeo:', e);
+                const videoContainer = video.parentElement;
+                videoContainer.innerHTML = `
+                    <div class="bg-gray-700 aspect-video rounded-lg flex items-center justify-center text-center p-8">
+                        <div>
+                            <i class="fas fa-exclamation-triangle text-4xl text-amber-400 mb-4"></i>
+                            <h3 class="text-lg font-bold mb-2">Vídeo não encontrado</h3>
+                            <p class="text-gray-400 mb-4">O arquivo de vídeo não foi encontrado. Por favor, verifique se o arquivo está no local correto.</p>
+                            <a href="https://www.linkedin.com/posts/jpbmsilva_datascience-dashboard-powerbi-activity-7275219935809712128-8bcw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC0vcVYBGzPreDzgGgMe5qWK0KHwep1VTPI" 
+                               target="_blank" 
+                               class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>Ver no LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+        }
     </script>
 </body>
 </html>
