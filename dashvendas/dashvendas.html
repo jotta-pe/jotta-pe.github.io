@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio | Cientista de Dados</title>
+    <title>Projeto West Superstore | Análise de Dados</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -13,26 +13,37 @@
             background-clip: text;
             color: transparent;
         }
-        .chart-container {
-            position: relative;
-            height: 300px;
-            width: 100%;
-        }
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
         }
-        .skill-bar {
-            height: 8px;
-            border-radius: 4px;
-            background: #1e293b;
-            overflow: hidden;
+        .insight-card {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
         }
-        .skill-progress {
-            height: 100%;
-            border-radius: 4px;
-            background: linear-gradient(90deg, #3b82f6, #10b981);
-            transition: width 1s ease-in-out;
+        .insight-card:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            transform: translateY(-2px);
+        }
+        .linkedin-post-container {
+            position: relative;
+        }
+        
+        @media (max-width: 768px) {
+            .linkedin-post-container iframe {
+                height: 350px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .linkedin-post-container iframe {
+                height: 399px;
+            }
+        }
+        .tech-badge {
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2));
+            border: 1px solid rgba(16, 185, 129, 0.3);
         }
     </style>
 </head>
@@ -41,14 +52,14 @@
     <header class="fixed w-full bg-gray-900/90 backdrop-blur-sm z-50 border-b border-gray-800">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="/index.html" class="text-2xl font-bold gradient-text">Portifólio<span class="text-white"> | João Pedro de Brito</span></a>
+                <a href="index.html" class="text-2xl font-bold gradient-text">Portfólio<span class="text-white"> | João Pedro de Brito</span></a>
                 
                 <nav class="hidden md:flex space-x-8">
-                    <a href="/index.html#home" class="hover:text-emerald-400 transition">Início</a>
-                    <a href="/index.html#about" class="hover:text-emerald-400 transition">Sobre</a>
-                    <a href="/index.html#skills" class="hover:text-emerald-400 transition">Habilidades</a>
-                    <a href="/index.html#projects" class="hover:text-emerald-400 transition">Projetos</a>
-                    <a href="/index.html#contact" class="hover:text-emerald-400 transition">Contato</a>
+                    <a href="index.html" class="hover:text-emerald-400 transition">Voltar ao Portfólio</a>
+                    <a href="#overview" class="hover:text-emerald-400 transition">Visão Geral</a>
+                    <a href="#challenge" class="hover:text-emerald-400 transition">Desafio</a>
+                    <a href="#insights" class="hover:text-emerald-400 transition">Insights</a>
+                    <a href="#linkedin-post" class="hover:text-emerald-400 transition">Dashboard</a>
                 </nav>
                 
                 <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
@@ -60,166 +71,481 @@
         <!-- Menu Mobile -->
         <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-6 py-4">
             <div class="flex flex-col space-y-4">
-                <a href="/index.html#home" class="hover:text-emerald-400 transition">Início</a>
-                <a href="/index.html#about" class="hover:text-emerald-400 transition">Sobre</a>
-                <a href="/index.html#skills" class="hover:text-emerald-400 transition">Habilidades</a>
-                <a href="/index.html#projects" class="hover:text-emerald-400 transition">Projetos</a>
-                <a href="/index.html#contact" class="hover:text-emerald-400 transition">Contato</a>
+                <a href="index.html" class="hover:text-emerald-400 transition">Voltar ao Portfólio</a>
+                <a href="#overview" class="hover:text-emerald-400 transition">Visão Geral</a>
+                <a href="#challenge" class="hover:text-emerald-400 transition">Desafio</a>
+                <a href="#insights" class="hover:text-emerald-400 transition">Insights</a>
+                <a href="#linkedin-post" class="hover:text-emerald-400 transition">Dashboard</a>
             </div>
         </div>
     </header>
 
-    
+    <!-- Seção Hero -->
+    <section class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 py-12 md:py-24">
+            <div class="text-center">
+                <div class="mb-8">
+                    <div class="inline-flex items-center space-x-2 bg-gray-800 px-4 py-2 rounded-full border border-gray-700 mb-6">
+                        <i class="fas fa-chart-pie text-emerald-400"></i>
+                        <span class="text-sm font-medium">Análise de Dados</span>
+                    </div>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="gradient-text">Análise de Vendas</span><br>
+                    <span class="text-white">West Superstore</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-3xl mx-auto">
+                    Dashboard completo para otimização de estratégias comerciais, revelando insights sobre receita por região, 
+                    lucratividade por categoria e padrões sazonais de vendas.
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <span class="tech-badge px-4 py-2 rounded-full text-sm font-medium">Power BI</span>
+                    <span class="tech-badge px-4 py-2 rounded-full text-sm font-medium">DAX</span>
+                    <span class="tech-badge px-4 py-2 rounded-full text-sm font-medium">Power Query (M)</span>
+                    <span class="tech-badge px-4 py-2 rounded-full text-sm font-medium">Modelagem de Dados</span>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#overview" class="bg-gradient-to-r from-blue-500 to-emerald-500 text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition">
+                        Explorar Projeto
+                    </a>
+                    <a href="https://www.linkedin.com/posts/jpbmsilva_datascience-dashboard-powerbi-activity-7275219935809712128-8bcw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC0vcVYBGzPreDzgGgMe5qWK0KHwep1VTPI" 
+                       target="_blank"
+                       class="border border-emerald-500 text-emerald-400 px-6 py-3 rounded-lg font-medium hover:bg-emerald-500/10 transition">
+                        <i class="fab fa-linkedin mr-2"></i>Ver no LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Seção Sobre -->
-    <section id="about" class="py-20 bg-gray-800/50">
+    <!-- Visão Geral do Projeto -->
+    <section id="overview" class="py-20 bg-gray-800/50">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="gradient-text">Projeto de Análise de vendas da West Superstore</span>
+                <span class="gradient-text">Visão Geral do Projeto</span>
             </h2>
             
-                <div class="md:w-3/3 md:pl-12">
-                 <!-- <h3 class="text-2xl font-bold mb-4">Olá, eu sou <span class="gradient-text">João Pedro de Brito</span></h3>
-                    <p class="text-gray-400 mb-6"> -->
-
-                        <h1>🚀 Análise de Dados para Otimizar Estratégias de Vendas 📊</h1>
-
-  <p>Um dashboard completo para a <strong>West Superstore</strong>, com o objetivo de ajudar a empresa a otimizar suas operações comerciais e melhorar suas estratégias de vendas.</p>
-
-  <h2 class="emoji">📌 O desafio de negócios</h2>
-  <p>A West Superstore buscava responder perguntas-chave para direcionar suas decisões:</p>
-  <ul>
-    <li>Quais regiões geram mais receita?</li>
-    <li>Quais categorias de produtos possuem maior lucratividade?</li>
-    <li>Como a sazonalidade afeta as vendas?</li>
-    <li>Quem são os clientes mais valiosos?</li>
-  </ul>
-
-  <h2 class="emoji">📌 Os indicadores utilizados</h2>
-  <p>Seguindo os requisitos do projeto, foquei em:</p>
-  <ul>
-    <li><strong>KPI’s de vendas:</strong> Receita total, quantidade de pedidos, ticket médio.</li>
-    <li><strong>KPI’s regionais:</strong> Receita por região e margem de lucro.</li>
-    <li><strong>KPI’s de produtos:</strong> Produtos mais vendidos e categorias mais lucrativas.</li>
-  </ul>
-  <p>Utilizei <strong>tooltips</strong> nos gráficos de receita por região e categoria, permitindo ao usuário ver a margem de lucro ao passar o mouse, proporcionando insights mais profundos!</p>
-
-  <h2 class="emoji">📌 Processo de construção</h2>
-  <p>Os dados foram disponibilizados em uma única planilha Excel. Para estruturar a análise:</p>
-  <ol>
-    <li>Realizei a limpeza dos dados, removendo inconsistências e duplicidades.</li>
-    <li>Modelei o conjunto em uma tabela fato (vendas) e três tabelas dimensão:
-      <ul>
-        <li><strong>Clientes:</strong> dados detalhados dos consumidores.</li>
-        <li><strong>Produtos:</strong> informações dos itens vendidos.</li>
-        <li><strong>Calendário:</strong> análise temporal para sazonalidade.</li>
-      </ul>
-    </li>
-  </ol>
-  <p>A partir disso, criei visualizações que conectam todas essas dimensões para responder às perguntas de negócio e destacar os insights mais importantes.</p>
-
-  <h2 class="emoji">📊 Insights revelados pelo dashboard:</h2>
-  <blockquote>
-    <ul>
-      <li>O estado da <strong>Califórnia</strong> se destacou como o maior gerador de receita com <strong>$2.336.538</strong>, seguido por <strong>Washington</strong> com <strong>$628.734</strong>.</li>
-      <li>A categoria <strong>Office Supplies</strong> possui maior lucratividade, enquanto <strong>Furniture</strong> demanda maior atenção.</li>
-      <li>Há um pico de vendas nos meses de <strong>novembro e dezembro</strong>, reforçando o impacto da sazonalidade.</li>
-      <li>Clientes como <strong>Raymond Buch</strong> e <strong>Nora Preis</strong> são altamente valiosos para o negócio.</li>
-    </ul>
-  </blockquote>
-
-  <p><strong>Obs:</strong> Na visualização de lucro por categoria é possível realizar <em>drill down</em> para subcategorias, e na visualização de sazonalidade também é possível explorar por trimestre e semestre.</p>
-
-  <h2 class="emoji">💡 Conclusão</h2>
-  <p>Este projeto reforçou minha paixão por transformar dados em decisões estratégicas. Foi incrível explorar o potencial das visualizações e KPIs para gerar valor real!</p>
-
-  <p>🔗 Vamos conversar sobre ciência de dados e como projetos como este podem impactar negócios?</p>
-
-<!-- Rodapé -->
-     <footer class="bg-gray-800/80 py-12 border-t border-gray-700">
-  <div class="container mx-auto px-6">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-      <div class="mb-6 md:mb-0 text-center md:text-left">
-        <a class="text-2xl font-bold gradient-text">João Pedro<span class="text-white"> de Brito</span></a>
-        <p class="text-gray-400 mt-2 text-sm">
-          Transformando dados em decisões inteligentes.
-        </p>
-      </div>
-
-      <div id="contact" class="flex flex-col items-center md:items-end w-full md:w-auto">
-        <div class="flex flex-col md:flex-row md:space-x-6 mb-4 w-full md:w-auto">
-          <div class="flex items-start mb-4 md:mb-0">
-            <div class="bg-gray-700 p-3 rounded-lg mr-4">
-              <i class="fas fa-envelope text-emerald-400"></i>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-target text-emerald-400 mr-3"></i>
+                        Objetivo
+                    </h3>
+                    <p class="text-gray-400 mb-6">
+                        Desenvolver um dashboard analítico completo para a West Superstore, permitindo 
+                        que a empresa otimize suas operações comerciais através de insights baseados em dados.
+                    </p>
+                    <p class="text-gray-400">
+                        O projeto focou em transformar dados brutos de vendas em visualizações estratégicas 
+                        que respondem perguntas-chave do negócio e direcionam tomadas de decisão.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700">
+                    <h4 class="text-xl font-bold mb-4 text-center">Métricas Principais</h4>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text mb-2">$4.9M</div>
+                            <div class="text-sm text-gray-400">Receita Total</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text mb-2">9.9K</div>
+                            <div class="text-sm text-gray-400">Pedidos</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text mb-2">793</div>
+                            <div class="text-sm text-gray-400">Clientes</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text mb-2">1.8K</div>
+                            <div class="text-sm text-gray-400">Produtos</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-              <h4 class="font-bold mb-1">E-mail</h4>
-              <p class="text-gray-400 break-all">jpbmsilvads@gmail.com</p>
-            </div>
-          </div>
-          <div class="flex items-start mb-4 md:mb-0">
-            <div class="bg-gray-700 p-3 rounded-lg mr-4">
-              <i class="fas fa-phone-alt text-emerald-400"></i>
-            </div>
-            <div>
-              <h4 class="font-bold mb-1">Telefone</h4>
-              <p class="text-gray-400 break-all">+55 (71) 99154-9897</p>
-            </div>
-          </div>
-          <div class="flex items-start">
-            <div class="bg-gray-700 p-3 rounded-lg mr-4">
-              <i class="fas fa-map-marker-alt text-emerald-400"></i>
-            </div>
-            <div>
-              <h4 class="font-bold mb-1">Localização</h4>
-              <p class="text-gray-400">Salvador-BA, Brasil</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex space-x-4 mt-6 md:mt-0">
-        <a href="https://www.linkedin.com/in/jpbmsilva" class="bg-gray-700 hover:bg-gray-600 w-12 h-12 rounded-full flex items-center justify-center transition">
-          <i class="fab fa-linkedin-in text-lg"></i>
-        </a>
-        <a href="https://github.com/jotta-pe/" class="bg-gray-700 hover:bg-gray-600 w-12 h-12 rounded-full flex items-center justify-center transition">
-          <i class="fab fa-github text-lg"></i>
-        </a>
-        <a href="https://www.kaggle.com/jpbmsilva" class="bg-gray-700 hover:bg-gray-600 w-12 h-12 rounded-full flex items-center justify-center transition">
-          <i class="fab fa-kaggle text-lg"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
-
+            
+            <!-- Processo de Desenvolvimento -->
+            <div class="bg-gray-800/30 p-8 rounded-xl border border-gray-700">
+                <h3 class="text-2xl font-bold mb-8 text-center">
+                    <i class="fas fa-cogs text-emerald-400 mr-3"></i>
+                    Processo de Construção
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="bg-gradient-to-br from-blue-500 to-emerald-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-broom text-2xl text-white"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">1. Limpeza dos Dados</h4>
+                        <p class="text-gray-400 text-sm">
+                            Tratamento de inconsistências, remoção de duplicidades e padronização dos dados
+                        </p>
+                    </div>
                     
-  <script>                  
-    // Menu mobile
+                    <div class="text-center">
+                        <div class="bg-gradient-to-br from-blue-500 to-emerald-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-project-diagram text-2xl text-white"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">2. Modelagem</h4>
+                        <p class="text-gray-400 text-sm">
+                            Estruturação em star schema com tabelas fato e dimensão (Clientes, Produtos, Calendário)
+                        </p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-gradient-to-br from-blue-500 to-emerald-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-bar text-2xl text-white"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">3. Visualizações</h4>
+                        <p class="text-gray-400 text-sm">
+                            Criação de dashboards interativos com KPIs, tooltips e drill-down capabilities
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desafio de Negócio -->
+    <section id="challenge" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="gradient-text">O Desafio de Negócio</span>
+            </h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 mb-8">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-question-circle text-emerald-400 mr-3"></i>
+                        Perguntas-Chave a Responder
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-start">
+                            <div class="bg-emerald-500/20 p-2 rounded-lg mr-4 mt-1">
+                                <i class="fas fa-map-marked-alt text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Desempenho Regional</h4>
+                                <p class="text-gray-400 text-sm">Quais regiões geram mais receita e possuem maior potencial de crescimento?</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-emerald-500/20 p-2 rounded-lg mr-4 mt-1">
+                                <i class="fas fa-boxes text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Análise de Produtos</h4>
+                                <p class="text-gray-400 text-sm">Quais categorias de produtos possuem maior lucratividade?</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-emerald-500/20 p-2 rounded-lg mr-4 mt-1">
+                                <i class="fas fa-calendar-alt text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Sazonalidade</h4>
+                                <p class="text-gray-400 text-sm">Como a sazonalidade afeta as vendas ao longo do ano?</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-emerald-500/20 p-2 rounded-lg mr-4 mt-1">
+                                <i class="fas fa-users text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Clientes Valiosos</h4>
+                                <p class="text-gray-400 text-sm">Quem são os clientes mais valiosos para o negócio?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- KPIs Utilizados -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-800/50 p-6 rounded-xl border border-gray-700 text-center">
+                        <i class="fas fa-dollar-sign text-3xl text-blue-400 mb-4"></i>
+                        <h4 class="text-lg font-bold mb-2">KPIs de Vendas</h4>
+                        <p class="text-gray-400 text-sm">Receita total, quantidade de pedidos, ticket médio</p>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 p-6 rounded-xl border border-gray-700 text-center">
+                        <i class="fas fa-globe-americas text-3xl text-emerald-400 mb-4"></i>
+                        <h4 class="text-lg font-bold mb-2">KPIs Regionais</h4>
+                        <p class="text-gray-400 text-sm">Receita por região e margem de lucro</p>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 p-6 rounded-xl border border-gray-700 text-center">
+                        <i class="fas fa-chart-pie text-3xl text-purple-400 mb-4"></i>
+                        <h4 class="text-lg font-bold mb-2">KPIs de Produtos</h4>
+                        <p class="text-gray-400 text-sm">Produtos mais vendidos e categorias lucrativas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Revelados -->
+    <section id="insights" class="py-20 bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="gradient-text">Insights Revelados</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Insight 1 -->
+                <div class="insight-card p-6 rounded-xl">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-emerald-500/20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-crown text-emerald-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Califórnia Lidera</h3>
+                            <p class="text-gray-400">
+                                A <strong>Califórnia</strong> se destacou como maior gerador de receita com 
+                                <span class="text-emerald-400 font-bold">$2.336.538</span>, seguida por Washington com $628.734.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Insight 2 -->
+                <div class="insight-card p-6 rounded-xl">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-blue-500/20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-clipboard-list text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Office Supplies Domina</h3>
+                            <p class="text-gray-400">
+                                A categoria <strong>Office Supplies</strong> possui a maior lucratividade, 
+                                enquanto <strong>Furniture</strong> demanda maior atenção estratégica.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Insight 3 -->
+                <div class="insight-card p-6 rounded-xl">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-purple-500/20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-snowflake text-purple-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Sazonalidade Clara</h3>
+                            <p class="text-gray-400">
+                                Pico de vendas nos meses de <strong>novembro e dezembro</strong>, 
+                                confirmando o impacto da sazonalidade de fim de ano.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Insight 4 -->
+                <div class="insight-card p-6 rounded-xl">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-amber-500/20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-star text-amber-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Clientes VIP</h3>
+                            <p class="text-gray-400">
+                                <strong>Raymond Buch</strong> e <strong>Nora Preis</strong> são identificados 
+                                como os clientes mais valiosos para o negócio.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Funcionalidades Especiais -->
+            <div class="mt-16 max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold mb-8 text-center">
+                    <span class="gradient-text">Funcionalidades Interativas</span>
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                        <h4 class="text-lg font-bold mb-4 flex items-center">
+                            <i class="fas fa-mouse-pointer text-emerald-400 mr-3"></i>
+                            Tooltips Informativos
+                        </h4>
+                        <p class="text-gray-400">
+                            Gráficos de receita por região e categoria incluem tooltips que revelam 
+                            a margem de lucro ao passar o mouse, proporcionando insights mais profundos.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                        <h4 class="text-lg font-bold mb-4 flex items-center">
+                            <i class="fas fa-search-plus text-emerald-400 mr-3"></i>
+                            Drill Down
+                        </h4>
+                        <p class="text-gray-400">
+                            Visualização de lucro por categoria permite drill down para subcategorias, 
+                            e análise de sazonalidade explora dados por trimestre e semestre.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard em Ação -->
+    <section id="linkedin-post" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">
+                <span class="gradient-text">Dashboard em Ação</span>
+            </h2>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+                Veja o dashboard funcionando e explore suas funcionalidades interativas
+            </p>
+            
+            <div class="flex justify-center">
+                <div class="linkedin-post-container max-w-lg w-full">
+                    <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                        <div class="relative overflow-hidden rounded-lg">
+                            <iframe 
+                                src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7275219693949378562?compact=1" 
+                                height="399" 
+                                width="100%" 
+                                frameborder="0" 
+                                allowfullscreen="" 
+                                title="Dashboard West Superstore em funcionamento"
+                                class="w-full rounded-lg">
+                            </iframe>
+                        </div>
+                        <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+                            <a 
+                                href="https://www.linkedin.com/posts/jpbmsilva_datascience-dashboard-powerbi-activity-7275219935809712128-8bcw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC0vcVYBGzPreDzgGgMe5qWK0KHwep1VTPI" 
+                                target="_blank"
+                                class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors justify-center"
+                            >
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>Ver Post Completo</span>
+                            </a>
+                            <a 
+                                href="https://www.linkedin.com/in/jpbmsilva" 
+                                target="_blank"
+                                class="inline-flex items-center space-x-2 border border-emerald-500 text-emerald-400 px-4 py-2 rounded-lg hover:bg-emerald-500/10 transition-colors justify-center"
+                            >
+                                <i class="fas fa-user-plus"></i>
+                                <span>Conectar no LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusão -->
+    <section class="py-20 bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">
+                    <span class="gradient-text">Conclusão do Projeto</span>
+                </h2>
+                
+                <p class="text-lg text-gray-400 mb-8">
+                    Este projeto reforçou minha paixão por transformar dados em decisões estratégicas. 
+                    Foi incrível explorar o potencial das visualizações e KPIs para gerar valor real 
+                    para o negócio da West Superstore.
+                </p>
+                
+                <div class="bg-gradient-to-r from-blue-500/20 to-emerald-500/20 p-8 rounded-xl border border-emerald-500/30">
+                    <h3 class="text-xl font-bold mb-4">💡 Impacto do Projeto</h3>
+                    <p class="text-gray-300 mb-6">
+                        O dashboard desenvolvido permite à empresa tomar decisões baseadas em dados, 
+                        otimizar estratégias regionais, focar em categorias mais lucrativas e 
+                        aproveitar melhor os períodos sazonais.
+                    </p>
+                    
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="index.html" class="bg-gradient-to-r from-blue-500 to-emerald-500 text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition">
+                            <i class="fas fa-arrow-left mr-2"></i>Voltar ao Portfólio
+                        </a>
+                        <a href="#contact" class="border border-emerald-500 text-emerald-400 px-6 py-3 rounded-lg font-medium hover:bg-emerald-500/10 transition">
+                            <i class="fas fa-envelope mr-2"></i>Entrar em Contato
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer id="contact" class="bg-gray-800/80 py-12 border-t border-gray-700">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <a class="text-2xl font-bold gradient-text">João Pedro<span class="text-white"> de Brito</span></a>
+                    <p class="text-gray-400 mt-2 text-sm">
+                        Transformando dados em decisões inteligentes.
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end w-full md:w-auto">
+                    <div class="flex flex-col md:flex-row md:space-x-6 mb-4 w-full md:w-auto">
+                        <div class="flex items-start mb-4 md:mb-0">
+                            <div class="bg-gray-700 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">E-mail</h4>
+                                <p class="text-gray-400 break-all">jpbmsilvads@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-4 md:mb-0">
+                            <div class="bg-gray-700 p-3 rounded-lg mr-4">
+                                <i class="fas fa-phone-alt text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">WhatsApp</h4>
+                                <a href="https://wa.me/5571991549897" class="text-gray-400 break-all hover:text-emerald-400 transition">+55 (71) 99154-9897</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-gray-700 p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Localização</h4>
+                                <p class="text-gray-400">Salvador-BA, Brasil</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex space-x-4 mt-6 md:mt-0">
+                    <a href="https://www.linkedin.com/in/jpbmsilva" class="bg-gray-700 hover:bg-gray-600 w-12 h-12 rounded-full flex items-center justify-center transition">
+                        <i class="fab fa-linkedin-in text-lg"></i>
+                    </a>
+                    <a href="https://github.com/jotta-pe/" class="bg-gray-700 hover:bg-gray-600 w-12 h-12 rounded-full flex items-center justify-center transition">
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+                    <a href="https://www.kaggle.com/jpbmsilva" class="bg-gray-700 hover:bg-gray-600 w-12 h-12 rounded-full flex items-center justify-center transition">
+                        <i class="fab fa-kaggle text-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        
-        // Animar barras de habilidades quando a seção é visualizada
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const skillBars = entry.target.querySelectorAll('.skill-progress');
-                    skillBars.forEach(bar => {
-                        const width = bar.style.width;
-                        bar.style.width = '0';
-                        setTimeout(() => {
-                            bar.style.width = width;
-                        }, 100);
-                    });
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        observer.observe(document.getElementById('skills'));
         
         // Smooth scrolling para links internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -241,6 +567,29 @@
                     }
                 }
             });
+        });
+
+        // Animação de entrada para os cards de insight
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Aplicar animação aos cards de insight
+        document.querySelectorAll('.insight-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
         });
     </script>
 </body>
