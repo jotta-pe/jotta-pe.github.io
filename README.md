@@ -133,25 +133,6 @@ O projeto utiliza **GitHub Pages** com deploy automático:
 2. **URL de Produção**: `https://jotta-pe.github.io`
 3. **SSL Automático** via GitHub
 
-### Configuração do GitHub Pages
-```yaml
-# .github/workflows/deploy.yml (se necessário)
-name: Deploy to GitHub Pages
-on:
-  push:
-    branches: [ main ]
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-```
-
 ---
 
 ## 🎨 Customização
