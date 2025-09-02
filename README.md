@@ -16,7 +16,7 @@
 
 ## 📋 Sobre o Projeto
 
-Este é meu portfólio pessoal desenvolvido como uma Single Page Application (SPA) responsiva, onde apresento minha trajetória como **Cientista de Dados** e **Analista de BI**. O site foi desenvolvido com foco em **performance**, **acessibilidade** e **experiência do usuário**.
+Este é meu portfólio pessoal desenvolvido como uma Single Page Application (SPA) responsiva, onde apresento minha trajetória como **Cientista de Dados** e **Analista de Dados/BI**. O site foi desenvolvido com foco em **performance**, **acessibilidade** e **experiência do usuário**.
 
 ### 🎯 Objetivos
 - Apresentar minha experiência profissional e formação acadêmica
@@ -87,48 +87,6 @@ portfolio/
     └── dashvendas/
         ├── dashvendas.html   # Página do projeto
         └── assets/           # Assets específicos do projeto
-```
-
----
-
-## 🚀 Como Executar Localmente
-
-### Pré-requisitos
-- Navegador web moderno
-- Servidor local (opcional, mas recomendado)
-
-### Instalação
-
-1. **Clone o repositório**
-```bash
-git clone https://github.com/jotta-pe/portfolio.git
-cd portfolio
-```
-
-2. **Opção 1: Abrir diretamente no navegador**
-```bash
-# Abra o arquivo index.html diretamente no navegador
-open index.html
-```
-
-3. **Opção 2: Usar servidor local (recomendado)**
-```bash
-# Python 3
-python -m http.server 8000
-
-# Python 2
-python -M SimpleHTTPServer 8000
-
-# Node.js (npx)
-npx serve .
-
-# PHP
-php -S localhost:8000
-```
-
-4. **Acesse no navegador**
-```
-http://localhost:8000
 ```
 
 ---
@@ -246,7 +204,7 @@ Embora este seja um projeto pessoal, feedback e sugestões são sempre bem-vindo
 <div align="center">
 
 **João Pedro de Brito**  
-*Cientista de Dados | Analista de BI*
+*Cientista de Dados | Analista de Dados/BI*
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jpbmsilva)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jotta-pe/)
