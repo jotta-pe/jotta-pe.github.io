@@ -20,7 +20,6 @@ Este é meu portfólio pessoal desenvolvido como uma Single Page Application (SP
 
 ### 🎯 Objetivos
 - Apresentar minha experiência profissional e formação acadêmica
-- Demonstrar habilidades técnicas em desenvolvimento web
 - Compartilhar projetos de ciência de dados e análise de dados
 - Facilitar contato com recrutadores e colaboradores
 
